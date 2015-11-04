@@ -23,8 +23,6 @@
 ![gitHib Logo][logo]
 [logo]: https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png "gitHub Logo"
 
-<<<<<<< HEAD
-
 *결론*
 	- 표1
 ---
@@ -47,10 +45,10 @@
 *참고자료*
 [김경준의 github](https://github.com/juniair)
 [스크립트 github][scriptGit]
-=======
+
 *참고자료*  
  * [김경준의 github](https://github.com/juniair)  
  * [스크립트 github][scriptGit]
->>>>>>> a752e0073c62d4c534990957c0f7152df9004f15
+>'Markdown Cheatsheet'를 활용
 
 [scriptGit]: https://github.com/juniair/Python
