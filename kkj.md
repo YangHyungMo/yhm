@@ -23,6 +23,26 @@
 ![gitHib Logo][logo]
 [logo]: https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png "gitHub Logo"
 
+
+*결론*
+	- 표1
+---
+	| 이 름 | 학 년 | 점 수 |
+	|-------|:-----:|-------|
+	|'경 준'|   3   | 99.9  |
+
+
+	- 코드
+\'
+	#include <stdio.h>
+	
+	int main()
+	{
+		printf('Hello Markdown!\n");
+	}
+'\
+
+
 *참고자료*
 [김경준의 github](https://github.com/juniair)
 [스크립트 github][scriptGit]
