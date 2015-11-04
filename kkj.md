@@ -27,4 +27,4 @@
  * [김경준의 github](https://github.com/juniair)  
  * [스크립트 github][scriptGit]
 
-[scriptGit]: https://github.com/juniair/Pyhton
+[scriptGit]: https://github.com/juniair/Python
