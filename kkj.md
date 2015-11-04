@@ -33,12 +33,12 @@
 ---  
  - 코드  
 \`
-	#include <stdio.h>
+		#include <stdio.h>
 	
-	int main()
-	{
-		printf('Hello Markdown!\n");
-	}
+		int main()
+		{
+			printf('Hello Markdown!\n");
+		}
 \`
 
 
