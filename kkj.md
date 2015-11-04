@@ -24,14 +24,14 @@
 [logo]: https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png "gitHub Logo"
 
 *결론*
-	- 표1
+ - 표1
 ---
 	| 이 름 | 학 년 | 점 수 |
 	|-------|:-----:|-------|
 	|'경 준'|   3   | 99.9  |
 
-
-	- 코드
+---
+ - 코드
 \'
 	#include <stdio.h>
 	
