@@ -24,7 +24,7 @@
 [logo]: https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png "gitHub Logo"
 
 *참고자료*  
-[김경준의 github](https://github.com/juniair)
-[스크립트 github][scriptGit]
+ * [김경준의 github](https://github.com/juniair)  
+ * [스크립트 github][scriptGit]
 
 [scriptGit]: https://github.com/juniair/Pyhton
