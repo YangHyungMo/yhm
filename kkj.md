@@ -32,14 +32,14 @@
 
 ---  
  - 코드  
-\'
+\`
 	#include <stdio.h>
 	
 	int main()
 	{
 		printf('Hello Markdown!\n");
 	}
-\'
+\`
 
 
 *참고자료*
