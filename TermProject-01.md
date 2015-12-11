@@ -353,3 +353,12 @@ http://news.jtbc.joins.com/article/article.aspx?news_id=NB10547358
 ![모듈1](http://postfiles8.naver.net/20151211_7/yhm1104_1449811593965OglS1_JPEG/KakaoTalk_20151203_130639684.jpg?type=w2)
 ![모듈2](http://postfiles10.naver.net/20151211_73/yhm1104_1449811598581iGwmf_JPEG/KakaoTalk_20151203_130639889.jpg?type=w2)
 ![모듈3](http://postfiles14.naver.net/20151211_109/yhm1104_1449811602657HnpJG_JPEG/KakaoTalk_20151203_130640121.jpg?type=w2)
+
+![필요성1](http://postfiles9.naver.net/20151211_280/yhm1104_144981242933926jLV_JPEG/1-2_(1).JPG?type=w2)
+![필요성2](http://postfiles2.naver.net/20151211_161/yhm1104_1449812442513sWTjX_JPEG/1-2_(2).JPG?type=w2)
+![필요성3](http://postfiles6.naver.net/20151211_69/yhm1104_1449812448084lS1Gd_JPEG/1-2_(3).JPG?type=w2)
+![시스템전체흐름](http://postfiles3.naver.net/20151211_2/yhm1104_1449812453282lqMnq_JPEG/3-2_(1).JPG?type=w2)
+![부분동작1](http://postfiles15.naver.net/20151211_206/yhm1104_1449812459068rUp5c_JPEG/3-5_(1).JPG?type=w2)
+![부분동작2](http://postfiles7.naver.net/20151211_214/yhm1104_1449812462983Ru1V9_JPEG/3-5_(2).JPG?type=w2)
+![부분동작3](http://postfiles12.naver.net/20151211_27/yhm1104_1449812465973Mxysn_JPEG/3-5_(3).JPG?type=w2)
+![부분동작4](http://postfiles11.naver.net/20151211_90/yhm1104_1449812478685OqpT5_JPEG/3-5_(4).JPG?type=w2
