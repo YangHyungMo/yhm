@@ -362,4 +362,381 @@ http://news.jtbc.joins.com/article/article.aspx?news_id=NB10547358
 
 
 
+-------------------------------------------
+
+ - beacon.cpp
+```cpp
+#include "Car.h"
+#include "Message.h"
+
+
+Message message;
+double speed;
+
+void receiveSpeed()
+{
+	speed = Speed values received by 'Speed Gun';
+}
+
+void sendSpeed()
+{
+	it transmits the speed to the server.;
+}
+void receiveMessage()
+{
+	message = received by 'Server';
+}
+void sendMessage()
+{
+	사용자에게 메시지를 전송한다.
+}
+
+
+```
+==============================================
+
+-------------------------------------------
+
+ - Car.h
+```cpp
+class Car {
+private:
+	double speed;
+	int rate;
+public:
+	void setSpeed(double carSpeed);
+	double getSpeed();
+	void setRate(double limitSpeed);
+	int getRate();
+};
+
+
+void Car::setSpeed(double carSpeed)
+{
+	speed = carSpeed;
+}
+
+double Car::getSpeed()
+{
+	return speed;
+}
+
+void Car::setRate(double limiteSpeed)
+{
+	if (limiteSpeed < speed)
+	{
+		if (speed - limiteSpeed >= 20.0)
+		{
+			rate = 8;
+		}
+		else if(speed - limiteSpeed >= 17.5)
+		{
+			rate = 7;
+		}
+		else if (speed - limiteSpeed >= 15.0)
+		{
+			rate = 6;
+		}
+		else if (speed - limiteSpeed >= 12.5)
+		{
+			rate = 5;
+		}
+		else if (speed - limiteSpeed >= 10.0)
+		{
+			rate = 4;
+		}
+		else if (speed - limiteSpeed  >= 7.5)
+		{
+			rate = 3;
+		}
+		else if (speed - limiteSpeed >= 5)
+		{
+			rate = 2;
+		}
+		else
+		{
+			rate = 1;
+		}
+	}
+	else
+	{
+		rate = 0;
+	}
+}
+
+int Car::getRate()
+{
+	return rate;
+}
+
+```
+==============================================
+
+-------------------------------------------
+
+ - Local.h
+```cpp
+enum class Weather { SUNNY, CLOUDY, RAINY, SNOWY };
+
+class Local {
+private:
+	Weather weather;
+public:
+	void setWeather(Weather weather);
+	Weather getWeather();
+};
+
+void Local::setWeather(Weather weather)
+{
+	this->weather = weather;
+}
+
+Weather Local::getWeather()
+{
+	return weather;
+}
+
+```
+==============================================
+
+-------------------------------------------
+
+ - Message.h
+```cpp
+#include <iostream>
+using namespace std;
+
+class Message {
+private:
+	string message;
+	int warning;
+public:
+	Message(int rate)
+	{
+		message = "위험합니다. 주위를 살피세요.";
+		warning = rate;
+	}
+	Message() {}
+	int getWarning();
+	string getMessage();
+};
+
+int Message::getWarning()
+{
+	return warning;
+}
+
+string Message::getMessage()
+{
+	return message;
+}
+
+
+
+```
+==============================================
+
+-------------------------------------------
+
+ - Road.h
+```cpp
+enum class Weather { SUNNY, CLOUDY, RAINY, SNOWY };
+
+
+class Road {
+private:
+	int roadState;
+	double limitSpeed;
+public:
+	void setRoadState(Weather weather);
+
+	void setLimitSpeed();
+	double getLimitSpeed();
+};
+
+void Road::setRoadState(Weather weather)
+{
+	if (Weather::SUNNY == weather)
+	{
+		roadState = 0;
+
+	}
+	else if (Weather::RAINY == weather)
+	{
+		roadState = 2;
+	}
+	else if (Weather::SNOWY == weather)
+	{
+		roadState = 3;
+	}
+	else if (Weather::CLOUDY == weather)
+	{
+		roadState = 1;
+	}
+}
+
+void Road::setLimitSpeed()
+{
+	switch (roadState)	{
+		case 0:
+			limitSpeed = 60.0;
+			break;
+		case 1:
+			limitSpeed = 55.0;
+			break;
+		case 2:
+			limitSpeed = 50.0;
+			break;
+		case 3:
+			limitSpeed = 40.0;
+			break;
+	}
+}
+
+double Road::getLimitSpeed()
+{
+	return limitSpeed;
+}
+
+
+
+```
+==============================================
+
+
+
+
+
+-------------------------------------------
+
+ - server.cpp
+```cpp
+#include "Car.h"
+#include "Local.h"
+#include "Message.h"
+#include "Road.h"
+
+#define N 10000
+
+void server()
+{
+	Local local;
+	local.setWeather(기상청에서 얻은 해당 지역에 날씨);
+
+	Road road;
+	road.setRoadState(local.getWeather());
+	road.setLimitSpeed();
+	
+
+	double speed = 비콘에서 얻은 차량의 속도;
+
+	Car car;
+	car.setSpeed(speed);
+	car.setRate(road.getLimitSpeed());
+
+	Message message(car.getRate);
+
+	Server is send a message to Beacon;
+}
+
+
+```
+==============================================
+
+
+
+
+
+-------------------------------------------
+
+ - user.cpp
+```cpp
+#include "Message.h"
+
+
+class User {
+private:
+	Message message;
+	bool gender;
+	int age;
+	int warning;
+public:
+	void setMessage(Message message receive by beacon)
+	{
+		this->message = message;
+	}
+	void setUserInfo(bool gneder, int age)
+	{
+		this->gender = gender;
+		this->age = age;
+
+		// true = man, false = women
+		if (gender)
+		{
+			if (age >= 60)
+			{
+				warning = 3;
+			}
+			else if (age >= 50)
+			{
+				warning = 4;
+			}
+			else if (age >= 50)
+			{
+				warning = 5;
+			}
+			else if (age >= 50)
+			{
+				warning = 6;
+			}
+			else if (age >= 50)
+			{
+				warning = 7;
+			}
+			else
+			{
+				warning = 8;
+			}
+		}
+		else
+		{
+			if (age >= 60)
+			{
+				warning = 2;
+			}
+			else if (age >= 50)
+			{
+				warning = 3;
+			}
+			else if (age >= 50)
+			{
+				warning = 4;
+			}
+			else if (age >= 50)
+			{
+				warning = 5;
+			}
+			else if (age >= 50)
+			{
+				warning = 6;
+			}
+			else
+			{
+				warning = 7;
+			}
+		}
+	}
+
+	void alram()
+	{
+		if (warning <= message.getWarning)
+		{
+			Display(message.getMessage);
+		}
+	}
+};
+```
+==============================================
+
+
 
