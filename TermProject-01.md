@@ -741,6 +741,10 @@ public:
 ![모듈1](http://postfiles8.naver.net/20151211_7/yhm1104_1449811593965OglS1_JPEG/KakaoTalk_20151203_130639684.jpg?type=w2)  
 =====================================
 
-- 노면 상태 계산
+- 날씨에 따른 노면 상태 변화
 ![모듈2](http://postfiles10.naver.net/20151211_73/yhm1104_1449811598581iGwmf_JPEG/KakaoTalk_20151203_130639889.jpg?type=w2)  
-![모듈3](http://postfiles14.naver.net/20151211_109/yhm1104_1449811602657HnpJG_JPEG/KakaoTalk_20151203_130640121.jpg?type=w2)
+=====================================
+
+- 노면 속도에 따른 차량의 제한속도 변화
+![모듈3](http://postfiles14.naver.net/20151211_109/yhm1104_1449811602657HnpJG_JPEG/KakaoTalk_20151203_130640121.jpg?type=w2)  
+=====================================
