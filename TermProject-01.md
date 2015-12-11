@@ -419,35 +419,35 @@ double Car::getSpeed()
 	return speed;
 }
 
-void Car::setRate(double limiteSpeed)
+void Car::setRate(double limitSpeed)
 {
-	if (limiteSpeed < speed)
+	if (limitSpeed < speed)
 	{
-		if (speed - limiteSpeed >= 20.0)
+		if (speed - limitSpeed >= 20.0)
 		{
 			rate = 8;
 		}
-		else if(speed - limiteSpeed >= 17.5)
+		else if(speed - limitSpeed >= 17.5)
 		{
 			rate = 7;
 		}
-		else if (speed - limiteSpeed >= 15.0)
+		else if (speed - limitSpeed >= 15.0)
 		{
 			rate = 6;
 		}
-		else if (speed - limiteSpeed >= 12.5)
+		else if (speed - limitSpeed >= 12.5)
 		{
 			rate = 5;
 		}
-		else if (speed - limiteSpeed >= 10.0)
+		else if (speed - limitSpeed >= 10.0)
 		{
 			rate = 4;
 		}
-		else if (speed - limiteSpeed  >= 7.5)
+		else if (speed - limitSpeed  >= 7.5)
 		{
 			rate = 3;
 		}
-		else if (speed - limiteSpeed >= 5)
+		else if (speed - limitSpeed >= 5)
 		{
 			rate = 2;
 		}
