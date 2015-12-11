@@ -412,20 +412,21 @@ public:
 };
 
 
-void Car::setSpeed(double carSpeed)
+void Car::setSpeed(double carSpeed) // 측정된 차량 속도
 {
 	speed = carSpeed;
 }
 
-double Car::getSpeed()
+double Car::getSpeed() // 비콘으로 보낼 차량속도
 {
 	return speed;
 }
 
-void Car::setRate(double limitSpeed)
+void Car::setRate(double limitSpeed) 측정된 차량의 위험도 설정(해당 모듈은 서버에서 사용)
 {
-	if (limitSpeed < speed)
+	if (limitSpeed < speed) // 현재 속도가 해당지역의 제한 속도를 넘은 경우
 	{
+        // 속도 차이를 가지고 위험도 설정
 		if (speed - limitSpeed >= 20.0)
 		{
 			rate = 8;
@@ -465,7 +466,7 @@ void Car::setRate(double limitSpeed)
 	}
 }
 
-int Car::getRate()
+int Car::getRate() // 메시지에 위험도를 반환
 {
 	return rate;
 }
@@ -477,8 +478,10 @@ int Car::getRate()
 
  - Local.h
 ```cpp
-enum class Weather { SUNNY, CLOUDY, RAINY, SNOWY };
 
+enum class Weather { SUNNY, CLOUDY, RAINY, SNOWY }; // 날씨의 대한 상태
+
+// 해당 class는 server에서 사용한다.
 class Local {
 private:
 	Weather weather;
@@ -487,12 +490,12 @@ public:
 	Weather getWeather();
 };
 
-void Local::setWeather(Weather weather)
+void Local::setWeather(Weather weather) // 기상청에서 얻은 날씨를 해당 위치에 저장
 {
 	this->weather = weather;
 }
 
-Weather Local::getWeather()
+Weather Local::getWeather() // 노면의 상태를 변경하기 위해 날씨를 반환
 {
 	return weather;
 }
@@ -504,6 +507,7 @@ Weather Local::getWeather()
 
  - Message.h
 ```cpp
+// class는 server와 beacon 그리고 user가 사용한다.
 #include <iostream>
 using namespace std;
 
@@ -512,22 +516,22 @@ private:
 	string message;
 	int warning;
 public:
-	Message(int rate)
+	Message(int rate) // 메시지가 위험도를 받는 순간 생성이 된다.
 	{
 		message = "위험합니다. 주위를 살피세요.";
 		warning = rate;
 	}
 	Message() {}
-	int getWarning();
+	int getWarning(); 
 	string getMessage();
 };
 
-int Message::getWarning()
+int Message::getWarning() // 사용자가 메시지의 위험도를 사용한다.
 {
 	return warning;
 }
 
-string Message::getMessage()
+string Message::getMessage() // 사용자에게 알람이 발생된다고 판단 하면 해당 모듈을 호출하여 사용자에게 알람을 표시
 {
 	return message;
 }
@@ -543,7 +547,7 @@ string Message::getMessage()
 ```cpp
 enum class Weather { SUNNY, CLOUDY, RAINY, SNOWY };
 
-
+// 해당 class는 server에서 사용한다.
 class Road {
 private:
 	int roadState;
@@ -555,7 +559,7 @@ public:
 	double getLimitSpeed();
 };
 
-void Road::setRoadState(Weather weather)
+void Road::setRoadState(Weather weather) // 해당 위치에 날씨에 따른 노면 상태를 측정
 {
 	if (Weather::SUNNY == weather)
 	{
@@ -576,7 +580,7 @@ void Road::setRoadState(Weather weather)
 	}
 }
 
-void Road::setLimitSpeed()
+void Road::setLimitSpeed() // 노면 상태에 따라 해당 도로의 위험 알림을 발생시키는 제한 속도를 설정한다.
 {
 	switch (roadState)	{
 		case 0:
@@ -594,7 +598,7 @@ void Road::setLimitSpeed()
 	}
 }
 
-double Road::getLimitSpeed()
+double Road::getLimitSpeed() // 측정된 차량이 제한 속도를 넘어 갔는지 판독하기 위해 해당 지역의 제한 속도를 확인 하는 모듈
 {
 	return limitSpeed;
 }
@@ -617,27 +621,28 @@ double Road::getLimitSpeed()
 #include "Message.h"
 #include "Road.h"
 
-#define N 10000
+#define N 10000 // 1만 군데 위치에 대해 서버가 처리해준다.
 
+// 한 위치당 서버가 처리하는 모듈(해당 모듈은 쓰레드로 구성한다.)
 void server()
 {
 	Local local;
-	local.setWeather(기상청에서 얻은 해당 지역에 날씨);
+	local.setWeather(기상청에서 얻은 해당 지역에 날씨); // 해당 지역의 날씨를 파악
 
 	Road road;
-	road.setRoadState(local.getWeather());
-	road.setLimitSpeed();
+	road.setRoadState(local.getWeather()); // 해당 지역의 날씨로 노면의 상태 변경
+	road.setLimitSpeed(); // 저장된 노면 상태를 가지고 해당 지역에 제한 속도 설정
 	
 
 	double speed = 비콘에서 얻은 차량의 속도;
 
 	Car car;
-	car.setSpeed(speed);
-	car.setRate(road.getLimitSpeed());
+	car.setSpeed(speed); // 측정된 차량의 속도 설정
+	car.setRate(road.getLimitSpeed()); // 측정된 차량의 위험도 설정
 
-	Message message(car.getRate);
+	Message message(car.getRate); // 보낼 메시지에 측정된 차량의 위험도를 저장
 
-	Server is send a message to Beacon;
+	Server is send a message to Beacon; // 비콘으로 메시지 전송
 }
 
 
@@ -652,27 +657,35 @@ void server()
 
  - user.cpp
 ```cpp
+/*
+   사용자는 비콘에서 메시지를 받고 알림 여부를 판독한다.
+
+
 #include "Message.h"
 
 
 class User {
 private:
-	Message message;
-	bool gender;
-	int age;
-	int warning;
+    Message message; // 비콘에서 받은 메시지
+	bool gender; // 성별
+	int age; // 나이
+	int warning; // 사용자 나이에 따른 위험도
 public:
-	void setMessage(Message message receive by beacon)
+	void setMessage(Message message receive by beacon) // 비콘으로 부터 받은 메시지를 사용자에게 저장하는 모듈
 	{
 		this->message = message;
 	}
-	void setUserInfo(bool gneder, int age)
+	void setUserInfo(bool gneder, int age) // 사용자가 입력한 정보를 저장 하는 모듈
 	{
 		this->gender = gender;
 		this->age = age;
 
 		// true = man, false = women
-		if (gender)
+        
+        /*
+           성별과 나이에 따른 위험도 설정
+        */
+		if (gender) 
 		{
 			if (age >= 60)
 			{
@@ -728,11 +741,11 @@ public:
 		}
 	}
 
-	void alram()
+	void alram() // 알람 메시지 모듈
 	{
-		if (warning <= message.getWarning)
+		if (warning <= message.getWarning) // 사용자가 설정된 위험도와 메시지에서 얻은 위험도를 비교
 		{
-			Display(message.getMessage);
+			Display(message.getMessage); // 조건이 참인 경우 메시지를 출력
 		}
 	}
 };
