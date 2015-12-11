@@ -361,4 +361,4 @@ http://news.jtbc.joins.com/article/article.aspx?news_id=NB10547358
 ![부분동작1](http://postfiles15.naver.net/20151211_206/yhm1104_1449812459068rUp5c_JPEG/3-5_(1).JPG?type=w2)
 ![부분동작2](http://postfiles7.naver.net/20151211_214/yhm1104_1449812462983Ru1V9_JPEG/3-5_(2).JPG?type=w2)
 ![부분동작3](http://postfiles12.naver.net/20151211_27/yhm1104_1449812465973Mxysn_JPEG/3-5_(3).JPG?type=w2)
-![부분동작4](http://postfiles11.naver.net/20151211_90/yhm1104_1449812478685OqpT5_JPEG/3-5_(4).JPG?type=w2
+![부분동작4](http://postfiles11.naver.net/20151211_90/yhm1104_1449812478685OqpT5_JPEG/3-5_(4).JPG?type=w2)
