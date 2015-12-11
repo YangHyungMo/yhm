@@ -364,6 +364,9 @@ http://news.jtbc.joins.com/article/article.aspx?news_id=NB10547358
 
  - beacon.cpp
 ```cpp
+/*
+    Beacon은 속도와 메시지를 송수신을 한다.
+*/
 #include "Car.h"
 #include "Message.h"
 
@@ -371,20 +374,20 @@ http://news.jtbc.joins.com/article/article.aspx?news_id=NB10547358
 Message message;
 double speed;
 
-void receiveSpeed()	// 속속돌속도를 받는다.
+void receiveSpeed()	// 스피드건에서 차량의 속도를 받는 모듈
 {
 	speed = Speed values received by 'Speed Gun';
 }
 
-void sendSpeed()	// 속도를 
+void sendSpeed()	// 서버로 메시지를 보내는 모듈
 {
 	it transmits the speed to the server.;
 }
-void receiveMessage()
+void receiveMessage() // 서버에서 메시지를 받는 모듈
 {
 	message = received by 'Server';
 }
-void sendMessage()
+void sendMessage()  // 메시지를 전송하는 모듈
 {
 	사용자에게 메시지를 전송한다.
 }
