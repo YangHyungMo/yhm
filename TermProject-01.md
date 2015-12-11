@@ -371,12 +371,12 @@ http://news.jtbc.joins.com/article/article.aspx?news_id=NB10547358
 Message message;
 double speed;
 
-void receiveSpeed()
+void receiveSpeed()	// 속속돌속도를 받는다.
 {
 	speed = Speed values received by 'Speed Gun';
 }
 
-void sendSpeed()
+void sendSpeed()	// 속도를 
 {
 	it transmits the speed to the server.;
 }
